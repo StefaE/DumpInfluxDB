@@ -39,7 +39,7 @@ sub getTables {
   my($outList, $tabList, @inList, $tableData);
   
   $outList = $self->{cfg}->getConfigMap("tables");
-  if (!scalar keys %$outList) { $outList = { "01_Data" => "PV, AC, Batterie, Summen" }; }
+  if (!scalar keys %$outList) { $outList = { "01_Data" => "PV|AC|Batterie|Summen" }; }
   $tabList = $self->{args}->{T};
   if (!$tabList) {
     $tabList = join(',', keys %{$outList});

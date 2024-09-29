@@ -35,7 +35,9 @@ sub new {
                   vars     => $vars
                 }, $self;
   
-  $self->_readConfig($cfgFile);
+  if (!$self->_readConfig($cfgFile)) {
+    $self->{cfgFile} = 'none';
+  }
   ${$self->{general}}{dbmodel} = \%dbmodel; 
   return $self; 
 }

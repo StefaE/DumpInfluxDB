@@ -24,6 +24,7 @@
 #                                 - multiple tabs were not created correctly
 #                                 - date intervals without data created tun-time errors
 #                                 - proper date/time format for DateTime
+#   1.00.02    2024-09-29       Bug fix: Defaults fixed if no config file provided
 # ---------------------------------------------------------------------------------------
 our $VERSION = "1.01.00, 2021-08-07";
 
@@ -131,7 +132,7 @@ if (!$args{f} && $duration->{days} > $FORCE_DAYS) {
 
 $cfg   = Dump_InFluxDB::Config->new($args{c});
 if ($cfg) {
-  print "  -- using config file $args{c}\n";
+  print "  -- using config file: $cfg->{cfgFile}\n";
 }
 
 $dump  = Dump_InFluxDB::Dump->new($cfg, \%args, $where);
